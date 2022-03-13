@@ -3,9 +3,13 @@ const titleElement = document.querySelector("#title");
 const directorElement = document.querySelector("#director");
 const urlElement = document.querySelector("#url");
 
-// UI Objesini Baslatma
+// UI Obj
 
 const ui = new UI();
+
+// Storage Obj
+
+const storage = new myStorage();
 
 // Tum eventleri yukleme
 
@@ -17,8 +21,6 @@ function eventListeners() {
 }
 
 function addFilm(e) {
-  e.preventDefault();
-
   const title = titleElement.value;
   const director = directorElement.value;
   const url = urlElement.value;
@@ -30,8 +32,10 @@ function addFilm(e) {
     const newFilm = new Film(title, director, url);
 
     ui.addFilmToUI(newFilm);
-    ui.displayMessages("film basariyla eklendi", "success")
+    storage.addFilmToStorage(newFilm);
+    ui.displayMessages("film basariyla eklendi", "success");
   }
 
   ui.clearInputs(titleElement, directorElement, urlElement);
+  e.preventDefault();
 }
