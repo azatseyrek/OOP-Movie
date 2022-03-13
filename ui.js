@@ -1,10 +1,8 @@
 function UI() {}
 
 UI.prototype.addFilmToUI = function (newFilm) {
-
-       
-        const filmList = document.getElementById("films")
-        filmList.innerHTML += `
+  const filmList = document.getElementById("films");
+  filmList.innerHTML += `
         <tr>
           <td><img src="${newFilm.url}" class="img-fluid img-thumbnail"></td>
           <td>${newFilm.title}</td>
@@ -12,6 +10,11 @@ UI.prototype.addFilmToUI = function (newFilm) {
           <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
         </tr> 
         
-        `
-   
+        `;
+};
+
+UI.prototype.clearInputs = function (elem1, elem2, elem3) {
+  elem1.value = "";
+  elem2.value = "";
+  elem3.value = "";
 };

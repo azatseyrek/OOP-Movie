@@ -13,8 +13,8 @@ eventListeners();
 
 function eventListeners() {
   form.addEventListener("submit", addFilm);
+  //   form.addEventListener("submit", clearInput);
 }
-
 
 function addFilm(e) {
   e.preventDefault();
@@ -30,7 +30,7 @@ function addFilm(e) {
     const newFilm = new Film(title, director, url);
 
     ui.addFilmToUI(newFilm);
-
-  
   }
+
+  ui.clearInputs(titleElement, directorElement, urlElement);
 }
