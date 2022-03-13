@@ -2,6 +2,8 @@ function UI() {}
 
 UI.prototype.addFilmToUI = function (newFilm) {
   const filmList = document.getElementById("films");
+  const films = JSON.stringify(localStorage.getItem("films"))
+  
   filmList.innerHTML += `
         <tr>
           <td><img src="${newFilm.url}" class="img-fluid img-thumbnail"></td>
@@ -34,3 +36,22 @@ UI.prototype.displayMessages = function (messages, type) {
     cardBody.removeChild(div);
   }, 2000);
 };
+
+UI.prototype.loadAllFilms = (films) => {
+    const filmList = document.getElementById("films")
+
+    films.map((film)=> {
+        filmList.innerHTML += `
+        <tr>
+        <td><img src="${film.url}" class="img-fluid img-thumbnail"></td>
+        <td>${film.title}</td>
+        <td>${film.director}</td>
+        <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
+      </tr>`
+    })
+}
+
+UI.prototype.deletMovieFromUI = (elem) => {
+    
+    elem.parentElement.parentElement.remove()
+}
