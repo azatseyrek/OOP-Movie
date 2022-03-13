@@ -15,18 +15,22 @@ function eventListeners() {
   form.addEventListener("submit", addFilm);
 }
 
-function addFilm() {
+
+function addFilm(e) {
   e.preventDefault();
 
   const title = titleElement.value;
-  const directorElement = directorElement.value;
-  const url = directorElement.value;
+  const director = directorElement.value;
+  const url = urlElement.value;
 
-  if (title === " " || director === " " || url === " ") {
+  if (title === "" || director === "" || url === "") {
     //   Hata
+    console.log("Hata");
   } else {
     const newFilm = new Film(title, director, url);
 
     ui.addFilmToUI(newFilm);
+
+  
   }
 }
