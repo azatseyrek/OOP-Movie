@@ -18,3 +18,19 @@ UI.prototype.clearInputs = function (elem1, elem2, elem3) {
   elem2.value = "";
   elem3.value = "";
 };
+
+UI.prototype.displayMessages = function (messages, type) {
+  const cardBody = document.querySelectorAll(".card-body")[0];
+
+  // Alert div olusturalim
+
+  const div = document.createElement("div");
+  div.className = `alert alert-${type}`;
+  div.textContent = messages;
+
+  cardBody.appendChild(div);
+
+  setTimeout(() => {
+    cardBody.removeChild(div);
+  }, 2000);
+};

@@ -25,11 +25,12 @@ function addFilm(e) {
 
   if (title === "" || director === "" || url === "") {
     //   Hata
-    console.log("Hata");
+    ui.displayMessages("Tum alanlari doldurun", "danger");
   } else {
     const newFilm = new Film(title, director, url);
 
     ui.addFilmToUI(newFilm);
+    ui.displayMessages("film basariyla eklendi", "success")
   }
 
   ui.clearInputs(titleElement, directorElement, urlElement);
